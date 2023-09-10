@@ -2,7 +2,7 @@ let timerInterval;
 const timeset = 50;
 let timeLeft = timeset;
 let x, y, step = 0; //step은 단계내의 단계를 나타내는 듯
-
+//버전1
 
 function startGame() { //셋팅
     document.getElementById("btn").style.display = "none";
