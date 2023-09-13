@@ -13,7 +13,9 @@ function startGame() { //셋팅
     mux();
 }
 window.onkeypress = function (e) {
-    if (e.keyCode === 13) {
+    var inputElem = document.getElementById("input");
+
+    if (e.keyCode === 13 && inputElem.value !== "") {
         if (step < 5) {
             timeLeft = timeset;
             checkAnswer(); // check 함수를 호출하면서 동시에 타이머 초기화
@@ -36,10 +38,25 @@ function updateStepDisplay() {
 
 
 function mux() { //모든 변수 값 재설정 하는 부분
+    var questionElem = document.getElementById("question");
+    
     if (step < 5) {
         x = Math.floor(Math.random() * 9) + 1;
         y = Math.floor(Math.random() * 9) + 1;
-        document.getElementById("question").innerText = x + " X " + y + " = ?";
+        
+        // 애니메이션 클래스 제거
+        questionElem.classList.remove("fadeInUpText");
+        
+        // 리플로우 강제 (애니메이션 재생을 위한 트릭)
+        void questionElem.offsetWidth;
+        
+        // 애니메이션 클래스 추가
+        questionElem.classList.add("fadeInUpText");
+
+        questionElem.innerText = x + " X " + y + " = ?";
+        setTimeout(() => {
+            questionElem.classList.remove("fadeInUpText");
+        }, 1000);
         timeLeft = timeset;
         startTimer(); 
         updateStepDisplay();
@@ -53,6 +70,7 @@ function mux() { //모든 변수 값 재설정 하는 부분
         }
     }
 }
+
 async function checkAnswer() { //정답을 맞췄을 때와 틀렸을 때
     var A = document.getElementById("input").value * 1;
     console.log(A);
@@ -70,7 +88,7 @@ async function checkAnswer() { //정답을 맞췄을 때와 틀렸을 때
         var retry = confirm("틀렸습니다.\n재시도 하시겠습니까?");
         if (retry) {
             step = 0;
-            document.body.style.backgroundColor = "#FAF1E6";
+            document.body.style.backgroundColor = "#FAE0D4";
             mux();
             updateStepDisplay();
         }

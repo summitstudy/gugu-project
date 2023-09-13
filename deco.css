@@ -6,7 +6,7 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
-    background-color: #FAF1E6;
+    background-color: #FAF1E6; /*전반적인 배경색*/
 }
 .btn {
     margin: auto;
@@ -29,6 +29,21 @@ body>* {
     margin: 0px auto;
 }
 /*애니메이션과 폰트들*/
+.fadeInUpText {
+    animation: fadeInUp 0.5s forwards; /* 0.5초 동안 애니메이션을 실행 */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .celebrate {
     animation: celebrationAnimation 1s;
 }
