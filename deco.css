@@ -1,59 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle&family=Gugi&family=Jua&display=swap');
-div,
-input,
-textarea {
-    box-sizing: border-box;
-}
-@keyframes celebrationAnimation {
-    0% { transform: scale(1); opacity: 0.5; }
-    50% { transform: scale(1.2); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.5; }
-}
+/*커스터마이징*/
 
-.celebrate {
-    animation: celebrationAnimation 1s;
-}
+/**/
 body {
     text-align: center;
     display: flex;
     flex-direction: column;
     background-color: #FAF1E6;
 }
-
+.btn {
+    margin: auto;
+    font-size:50px;
+    background-color: #DBA39A; 
+    border-radius: 8px;
+}
+.btn:hover{
+    background-color: #db988e;
+}
+body>* {
+    margin: 0px auto;
+    font: "Gugi";
+}
+.center {
+    display: flex;
+    flex-direction: column;
+}
+.center>* {
+    margin: 0px auto;
+}
+/*애니메이션과 폰트들*/
+.celebrate {
+    animation: celebrationAnimation 1s;
+}
+@keyframes celebrationAnimation {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.5; }
+}
 .Dongle {
     font-family: 'Dongle', sans-serif;
 }
-
 .Gugi {
     font-family: 'Gugi', sans-serif;
 }
 
 .Jua {
     font-family: 'Jua', sans-serif;
-}
-
-
-div {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-button {
-    margin: auto;
-}
-
-body>* {
-    margin: 0px auto;
-    font: "Gugi";
-}
-
-
-.center {
-    display: flex;
-    flex-direction: column;
-}
-
-.center>* {
-    margin: 0px auto;
 }

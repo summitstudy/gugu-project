@@ -2,7 +2,7 @@ let timerInterval;
 const timeset = 50;
 let timeLeft = timeset;
 let x, y, step = 0; //step은 단계내의 단계를 나타내는 듯
-//버전1
+//버전2 <안정화, 붉은 색 없앰>
 
 function startGame() { //셋팅
     document.getElementById("btn").style.display = "none";
@@ -67,10 +67,11 @@ async function checkAnswer() { //정답을 맞췄을 때와 틀렸을 때
     }
     else {
         console.log("Incorrect");
-        document.body.style.backgroundColor = "#ffdfd4";
         var retry = confirm("틀렸습니다.\n재시도 하시겠습니까?");
         if (retry) {
             step = 0;
+            document.body.style.backgroundColor = "#FAF1E6";
+            mux();
             updateStepDisplay();
         }
         else {
@@ -88,11 +89,12 @@ async function startTimer() { //비동기 타이머 부분
         if (timeLeft >= 0) {
             document.getElementById("timer").textContent = "⏰"+(timeLeft / 10).toFixed(1) + "초";
             timeLeft--;
-        } else {
+        }else{
             clearInterval(timerInterval);
             alert("시간이 초과되었습니다.");
             var retry = confirm("재시도 하시겠습니까?");
             if (retry) {
+                document.body.style.backgroundColor = "#FAF1E6";
                 step = 0;
                 mux();
             }
