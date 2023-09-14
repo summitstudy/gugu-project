@@ -1,5 +1,5 @@
 let timerInterval;
-const timeset = 50;
+const timeset = 150;
 let timeLeft = timeset;
 let x, y, step = 0; //step은 단계내의 단계를 나타내는 듯
 //버전2 <안정화, 붉은 색 없앰>
@@ -14,7 +14,7 @@ function startGame() { //셋팅
 }
 window.onkeypress = function (e) {
     var inputElem = document.getElementById("input");
-
+    inputElem.focus();
     if (e.keyCode === 13 && inputElem.value !== "") {
         if (step < 5) {
             timeLeft = timeset;
@@ -24,7 +24,7 @@ window.onkeypress = function (e) {
 }
 function updateStepDisplay() {
     let stepElem = document.getElementById("stepDisplay");
-    
+
     if (step > 0) {
         stepElem.innerText = step + " 연속 성공!🥳";
         stepElem.classList.add("celebrate");
@@ -39,26 +39,26 @@ function updateStepDisplay() {
 
 function mux() { //모든 변수 값 재설정 하는 부분
     var questionElem = document.getElementById("question");
-    
+
     if (step < 5) {
         x = Math.floor(Math.random() * 9) + 1;
         y = Math.floor(Math.random() * 9) + 1;
-        
+        z = Math.floor(Math.random() * 9) + 1;
         // 애니메이션 클래스 제거
         questionElem.classList.remove("fadeInUpText");
-        
+
         // 리플로우 강제 (애니메이션 재생을 위한 트릭)
         void questionElem.offsetWidth;
-        
+
         // 애니메이션 클래스 추가
         questionElem.classList.add("fadeInUpText");
 
-        questionElem.innerText = x + " X " + y + " = ?";
+        questionElem.innerText = x + " X " + y + " X " + z + " = ?";
         setTimeout(() => {
             questionElem.classList.remove("fadeInUpText");
-        }, 1000);
+        }, 500);
         timeLeft = timeset;
-        startTimer(); 
+        startTimer();
         updateStepDisplay();
     } else {
         var upstage = confirm("1단계 성공🎇 더 높은 단계에 도전하시겠습니까?");
@@ -76,7 +76,7 @@ async function checkAnswer() { //정답을 맞췄을 때와 틀렸을 때
     console.log(A);
     document.getElementById("input").value = "";
 
-    if (x * y === A) {
+    if (x * y * z === A) {
         console.log("Correct");
         document.body.style.backgroundColor = "#e2f3ea";
         step++;
@@ -105,9 +105,9 @@ async function startTimer() { //비동기 타이머 부분
 
     function updateTimer() {
         if (timeLeft >= 0) {
-            document.getElementById("timer").textContent = "⏰"+(timeLeft / 10).toFixed(1) + "초";
+            document.getElementById("timer").textContent = "⏰" + (timeLeft / 10).toFixed(1) + "초";
             timeLeft--;
-        }else{
+        } else {
             clearInterval(timerInterval);
             alert("시간이 초과되었습니다.");
             var retry = confirm("재시도 하시겠습니까?");

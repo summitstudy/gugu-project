@@ -4,29 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="deco.css" rel="stylesheet">
-    <link href="div.css" rel="stylesheet">
-    <title>✨1단계✨</title>
+    <link href="CSS/deco.css" rel="stylesheet">
+    <title>🌱1단계🌱</title>
 </head>
 
-<body>
+<body class="ani-zoom">
     <br><br>
-    <h3 style="font-size:50px;width:300px;height:80px;" class="Jua">✨1단계✨</h3><br>
+    <h3 style="font-size:50px;width:300px;height:80px;" class="Jua">🌱1단계🌱</h3>
+    <div class="user-box Jua"> 닉네임 <span id="hearts"></span> 🪙:120</div><br>
     <div class="Jua" style="font-size: 28px;">
         <div id="stepDisplay"></div>
     </div>
     <div id="timer" class="Jua" style="font-size: 40px; margin-top: 20px;"></div>
-    <p class="Jua" id="descriptionBox"
-        style="font-size: 40px;width:800px;height:220px;border: 2px solid #DBA39A;background-color:#FEFCF3;border-radius: 10px;">
-        <br>1~9사이의 수가 랜덤으로 제시됩니다.<br> 5번연속 맞추시면 성공입니다.
-    </p>
+    <div id="descriptionBox" class="open-box" style="width:60%;">
+        <p class="Jua">
+            📢: 랜덤한 두 숫자의 곱셈이 제시됩니다.<br> 5번연속 맞추시면 성공입니다.
+        </p>
+    </div><br>
     <div class="center Jua">
-        <br><button id="btn" style="width:130px; font-size:45px" class="Jua btn"
-            onclick="startGame()">시작!</button>
+        <button id="btn" style="width:130px; font-size:45px" class="Jua btn" onclick="startGame()">시작!</button>
         <strong id="question" style="font-size:70px;" class="fadeInUpText"></strong>
         <input id="input" type="number" class="Jua" style="display:none;font-size:40px;width:130px;height:50px;" />
     </div>
-    <script src="action.js"></script>
+    <script src="JS/action.js"></script>
+    <script src="JS/heart.js"></script>
 </body>
 
 </html>

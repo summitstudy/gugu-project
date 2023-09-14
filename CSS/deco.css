@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Gugi&family=Jua&display=swap');
+/*커스터마이징*/
+
+/**/
+body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #FAF1E6;
+    /*전반적인 배경색*/
+}
+.user-box{
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:30px;
+    width:500px;
+    height: 80px;
+    padding: 10px;
+    font-size:30px;
+    color :#5f5f5f;
+    border-radius:15px;
+}
+.open-box {
+    width: 90%;
+    height: auto;
+    border: 2px solid #DBA39A;
+    background-color: #FEFCF3;
+    border-radius: 10px;
+    font-size:40px;
+}
+
+.btn {
+    margin: auto;
+    font-size: 40px;
+    background-color: #DBA39A;
+    border-radius: 8px;
+}
+
+.btn:hover {
+    background-color: #db988e;
+}
+
+body>* {
+    margin: 0px auto;
+    font: "Gugi";
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+}
+
+.center>* {
+    margin: 0px auto;
+}
+@keyframes heartDecreaseAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.7); }
+    100% { transform: scale(1); }
+}
+
+.animatedHeart {
+    animation: heartDecreaseAnimation 0.4s forwards;
+}
+/*애니메이션과 폰트들*/
+.fadeInUpText {
+    animation: fadeInUp 0.5s forwards;
+    /* 0.5초 동안 애니메이션을 실행 */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.celebrate {
+    animation: celebrationAnimation 1s;
+}
+
+@keyframes celebrationAnimation {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.ani-zoom {
+    animation: zoomIn 0.3s forwards;
+    animation-delay: 0s;
+    /* 딜레이 없음 */
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
+
+.ani-left {
+    position: relative;
+    animation: fadeInLeft 1s;
+}
+
+.Dongle {
+    font-family: 'Dongle', sans-serif;
+}
+
+.Gugi {
+    font-family: 'Gugi', sans-serif;
+}
+
+.Jua {
+    font-family: 'Jua', sans-serif;
+}

@@ -1,116 +1,33 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="CSS/deco.css" rel="stylesheet">
     <title>✨2단계✨</title>
 </head>
-<body><br><br>
-    <h3 style="font-size:50px;width:300px;height:80px;"class = "Jua">✨2단계✨</h3><br><br><br>
-    <p class= "Jua" style="font-size: 40px;width:800px;height:220px;border: 2px solid #DBA39A;background-color:#FEFCF3;border-radius: 10px;"><br>1~9사이의 수가 랜덤으로 제시됩니다.<br> 5번연속 맞추시면 성공입니다.</p>
-    <div class="center Jua">
-        <br><br><button id="btn" style="font-size:45px;background-color: #DBA39A; border-radius: 8px" class = "Jua"onclick = mux()>시작!</button>
-        <strong id="question" style ="font-size:40px;"></strong>
-        <input id="input" type="number" class="Jua" style="display:none;font-size:40px;width:130px;height:50px;"/>
+
+<body class="ani-left">
+    <br><br>
+    <h3 style="font-size:50px;width:300px;height:80px;" class="Jua">✨2단계✨</h3><br>
+    <div class="user-box Jua"> 닉네임 <span id="hearts"></span> 🪙:120</div><br>
+    <div class="Jua" style="font-size: 28px;">
+        <div id="stepDisplay"></div>
     </div>
-    
-    <script>
-        window.onkeypress = function(e) {
-            if(e.keyCode===13) check();
-        }
-        
-        let x, y,z, step = 0;
-        
-        function mux(){
-            if(step < 5) {
-                x = Math.floor(Math.random() * 9)+1;
-                y = Math.floor(Math.random() * 9)+1;
-                z = Math.floor(Math.random() * 9)+1;
-                document.getElementById("btn").style.display = "none";
-                document.getElementById("question").innerText = x + " X " + y + " X " + z + " = ?";
-                document.getElementById("input").style.display = "block";
-                
-                
-            }else {
-                var upstage = confirm("높은 단계에 도전하시겠습니까?");
-                if(upstage){
-                    location.href = 'thirdstage.html';
-                }  
-            }
-        }
-
-        function check () {
-                var A = document.getElementById("input").value*1;
-                console.log(A);
-                document.getElementById("input").value = "";
-            
-                    if(x*y*z === A){
-                    console.log("Correct");
-                    document.body.style.backgroundColor = "#e2f3ea";
-                        step++;
-                        mux();
-                    }
-                    else {
-                    console.log("Incorrect");
-                    document.body.style.backgroundColor = "#ffdfd4";
-                    var retry = confirm("틀렸습니다.\n재시도 하시겠습니까?");
-                        if(retry){
-                            step = 0;
-                        }
-                        else{
-                            location.href = 'open.html';
-                            alert("초기화면으로 돌아갑니다.");
-                        }
-                    }
-        }
-        
-    </script>
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dongle&family=Gugi&family=Jua&display=swap');
-
-body {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    background-color:#FAF1E6;
-}
-.Dongle{
-    font-family: 'Dongle', sans-serif;
-}
-.Gugi{
-    font-family: 'Gugi', sans-serif;
-}
-.Jua{
-    font-family: 'Jua', sans-serif;
-}
-
-
-div {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        button {
-            margin: auto;
-        }
-
-        
-        body > * {
-            margin: 0px auto;
-            font: "Gugi";
-        }
-
-
-        .center {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .center > * {
-            margin: 0px auto;
-        }
-    </style>
+    <div id="timer" class="Jua" style="font-size: 40px; margin-top: 20px;"></div>
+    <div id="descriptionBox" class="open-box" style="width:60%;">
+        <p class="Jua">
+            📢: 와우~! 잘하시는데요? <br>2단계는 랜덤한 세 숫자의 곱셈이 제시됩니다. <br> 5번 연속 맞추시면 성공입니다.
+        </p>
+    </div>
+    <div class="center Jua">
+        <br><button id="btn" style="width:130px; font-size:45px" class="Jua btn" onclick="startGame()">시작!</button>
+        <strong id="question" style="font-size:70px;" class="fadeInUpText"></strong>
+        <input id="input" type="number" class="Jua" style="display:none;font-size:40px;width:130px;height:50px;" />
+    </div>
+    <script src="JS/action.js"></script>
+    <script src="JS/heart.js"></script>
 </body>
+
 </html>
