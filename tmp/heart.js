@@ -11,15 +11,19 @@ function getHeartCountFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get('hearts') || 5; // 기본 값은 5
 }
-
+function getNicknameFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('nickname') || ""; // 기본값은 빈 문자열
+}
 // 페이지 로드 시에 호출
-window.onload = function () {
+window.addEventListener('load', function() {
     const heartCount = getHeartCountFromURL();
     updateHearts(heartCount);
-}
+});
 function goToOtherPage() {
     const currentHeartCount = getHeartCountFromURL();
-    const newURL = `otherpage.html?hearts=${currentHeartCount}`;
+    const currentNickname = getNicknameFromURL(); // 닉네임도 가져옵니다.
+    const newURL = `otherpage.html?hearts=${currentHeartCount}&nickname=${currentNickname}`;
     window.location.href = newURL;
 }
 function decreaseHeartCount() {
@@ -37,7 +41,7 @@ function decreaseHeartCount() {
     updateHearts(currentHeartCount); // 화면에 바로 하트를 업데이트
 
     // URL에 반영하려면, history API를 사용할 수 있습니다:
-    const newURL = window.location.pathname + "?hearts=" + currentHeartCount;
+    const newURL = window.location.pathname + `?hearts=${currentHeartCount}&nickname=${currentNickname}`;
     history.pushState({}, '', newURL);
 
     return currentHeartCount;

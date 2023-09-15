@@ -11,12 +11,18 @@
 <body class="ani-zoom">
     <br><br>
     <h3 style="font-size:50px;width:300px;height:80px;" class="Jua">🌱1단계🌱</h3>
-    <div class="user-box Jua"> 닉네임 <span id="hearts"></span> 🪙:120</div><br>
+    <div class="user-box Jua">
+        <div class="user-box-in">엄준식</div>
+        <div style="flex-grow:1"></div>
+        <div class="user-box-out" id="hearts"></div>
+        <div class="user-box-out">17220</div>
+    </div>
+    <br>
     <div class="Jua" style="font-size: 28px;">
         <div id="stepDisplay"></div>
     </div>
     <div id="timer" class="Jua" style="font-size: 40px; margin-top: 20px;"></div>
-    <div id="descriptionBox" class="open-box" style="width:60%;">
+    <div id="descriptionBox" class="teacher-box" style="width:35%; margin-top:0px">
         <p class="Jua">
             📢: 랜덤한 두 숫자의 곱셈이 제시됩니다.<br> 5번연속 맞추시면 성공입니다.
         </p>
@@ -27,7 +33,7 @@
         <input id="input" type="number" class="Jua" style="display:none;font-size:40px;width:130px;height:50px;" />
     </div>
     <script src="JS/action.js"></script>
-    <script src="JS/heart.js"></script>
+    <script src="JS/user.js"></script>
 </body>
 
 </html>
