@@ -155,13 +155,13 @@ async function startTimer() { //비동기 타이머 부분
         } else {
             clearInterval(timerInterval);
             let currentHearttmp = parseInt(getQueryStringValue("hearts")) || 0;
+            decreaseHeartCount(); // 바로 하트를 차감하고 화면에 반영
             if (currentHearttmp == 1) {
                 ending_hamsu();
             } else {
                 alert("💔시간이 초과되었습니다. 하트-1점");
                 var retry = confirm("재시도 하시겠습니까?");
                 if (retry) {
-                    decreaseHeartCount(); // 바로 하트를 차감하고 화면에 반영
                     document.body.style.backgroundColor = "#FAE0D4";
                     mux();
                     updateStepDisplay(2);
