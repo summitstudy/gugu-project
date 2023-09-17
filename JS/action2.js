@@ -1,7 +1,7 @@
 let timerInterval;
-let timeset = 50; //이 값은 스테이지별로 수정될 수 있어야한다.
+let timeset = 100; //이 값은 스테이지별로 수정될 수 있어야한다.
 let timeLeft;
-let x, y, step = 0; //step은 단계내의 단계를 나타내는 듯
+let x, y,z, step = 0; //step은 단계내의 단계를 나타내는 듯
 function startGame() { //셋팅
     document.getElementById("btn").style.display = "none";
     document.getElementById("input").style.display = "block";
@@ -24,13 +24,13 @@ function mux() { //모든 변수 값 재설정 하는 부분
 
     if (step < 5) {
         x = Math.floor(Math.random() * 9) + 1;
-        y = Math.floor(Math.random() * 9) + 1;
-
+        y = Math.floor(Math.random() * 4) + 2;
+        z = Math.floor(Math.random() * 9) + 1;
         questionElem.classList.remove("fadeInUpText");
         void questionElem.offsetWidth;
         questionElem.classList.add("fadeInUpText");
 
-        questionElem.innerText = x + " X " + y + " = ?";
+        questionElem.innerText = x + " X " + y + " X " + z + " = ?";
         setTimeout(() => {
             questionElem.classList.remove("fadeInUpText");
         }, 500);
@@ -40,9 +40,9 @@ function mux() { //모든 변수 값 재설정 하는 부분
         updateStepDisplay(1);
         setTimeout(function () {
             console.log("This message will be logged after 2 seconds");
-            var upstage = confirm("1단계 성공🎇 더 높은 단계에 도전하시겠습니까?");
+            var upstage = confirm("2단계 성공🎆 더 높은 단계에 도전하시겠습니까?");
             if (upstage) {
-                goToNextPage_load('secondstage.html');
+                goToNextPage_load('thirdstage.html');
             } else {
                 reset_hamsu();
             }
@@ -55,7 +55,7 @@ async function checkAnswer() { //정답을 맞췄을 때와 틀렸을 때
     console.log(A);
     document.getElementById("input").value = "";
 
-    if (x * y === A) {
+    if (x * y * z === A) {
         console.log("Correct");
         document.body.style.backgroundColor = "#e2f3ea";
         step++;
@@ -81,4 +81,3 @@ async function checkAnswer() { //정답을 맞췄을 때와 틀렸을 때
         }
     }
 }
-

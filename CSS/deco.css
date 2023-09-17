@@ -9,6 +9,57 @@ body {
     background-color: #FAF1E6;
     /*전반적인 배경색*/
 }
+.f-box{
+    background-color: #FEFCF3;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    margin-top:10px;
+    width:600px;
+    height: 100px;
+    padding: 30px;
+    font-size:60px;
+    border-radius:15px;
+    color:rgb(0, 0, 0);
+}
+.final-box{
+    background-color: #FEFCF3;
+    display: flex;
+    align-items:start;
+    justify-content: center;
+    margin-top:10px;
+    width:600px;
+    height: 70%;
+    padding: 30px;
+    font-size:40px;
+    border-radius:15px;
+    white-space: pre-line;
+    color:rgb(139, 80, 54);
+}
+#f-button {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.5s, transform 0.5s; /* 애니메이션 지속 시간 설정 */
+    visibility: hidden;  /* visibility 속성을 사용하여 요소를 숨깁니다. */
+}
+#f-button.show {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+}
+#final-points {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.5s, transform 0.5s; /* 애니메이션 지속 시간 설정 */
+    visibility: hidden;  /* visibility 속성을 사용하여 요소를 숨깁니다. */
+}
+
+/* 뿅하고 나타나는 애니메이션 */
+#final-points.show {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+}
 .teacher-box{
     border: 2px solid #DBA39A;
     background-color: #FEFCF3;
@@ -93,6 +144,25 @@ body>* {
 .center>* {
     margin: 0px auto;
 }
+@keyframes goldAndScaleAnimation {
+    0%, 100% {
+        transform: scale(1);
+        background: none;
+        color: inherit;
+    }
+    50% {
+        transform: scale(1);
+        background: linear-gradient(45deg, #FFD700, #FFCC52, #FFD700); 
+        color: transparent;  
+        -webkit-background-clip: text; 
+        background-clip: text;
+    }
+}
+
+.gold-and-scale-text-animation {
+    animation: goldAndScaleAnimation 0.5s;
+}
+
 /*아이디*/
 @keyframes popIn {
     from {
