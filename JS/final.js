@@ -8,7 +8,7 @@ window.addEventListener('load', function () {
     if (nickname) {
         typeEffect(nickname + "님의 최종 점수😉\n" +
             "❤️" + hearts + " X " + "1000" + " = +" + finalhearts +
-            "\n🪙 = +" + points, function () {
+            "\n💰 = +" + points, function () {
                 // document.getElementById("final-points").style.display = "block";
                 document.getElementById("final-points").innerText = finalpoints + "🎉";
                 document.getElementById("final-points").classList.add("show");
