@@ -159,7 +159,7 @@ async function startTimer() { //비동기 타이머 부분
             clearInterval(timerInterval);
             let currentHearttmp = parseInt(getQueryStringValue("hearts")) || 0;
             decreaseHeartCount(); // 바로 하트를 차감하고 화면에 반영
-            if (currentHearttmp == 1) {
+            if (currentHearttmp <= 1) {
                 ending_hamsu();
             } else {
                 alert("💔시간이 초과되었습니다. 하트-1점");
