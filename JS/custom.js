@@ -33,6 +33,7 @@ function mux() {
     }
 }
 function startGame() { //셋팅
+    ending_key = 1;
     document.getElementById("btn").style.display = "none";
     document.getElementById("input").style.display = "block";
     document.getElementById("descriptionBox").style.display = "none";
