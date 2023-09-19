@@ -154,6 +154,7 @@ async function startTimer() { //비동기 타이머 부분
             document.getElementById("timer").textContent = "⏰" + (timeLeft / 10).toFixed(1) + "초";
             timeLeft--;
         } else {
+            document.getElementById("input").value = "";
             clearInterval(timerInterval);
             let currentHearttmp = parseInt(getQueryStringValue("hearts")) || 0;
             decreaseHeartCount(); // 바로 하트를 차감하고 화면에 반영
