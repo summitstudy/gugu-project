@@ -124,6 +124,7 @@ function updateStepDisplay(state) {
     }
 }
 function ending_hamsu() {
+    document.getElementById("input").value = "";
     x = y = -10000;
     decreaseHeartCount();
     document.body.style.backgroundColor = "#EDC6C6";
@@ -162,6 +163,7 @@ async function startTimer() { //비동기 타이머 부분
                 alert("💔시간이 초과되었습니다. 하트-1점");
                 var retry = confirm("재시도 하시겠습니까?");
                 if (retry) {
+                    document.getElementById("input").value = "";
                     document.body.style.backgroundColor = "#FAE0D4";
                     mux();
                     updateStepDisplay(2);

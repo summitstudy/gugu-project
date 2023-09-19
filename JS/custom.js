@@ -77,4 +77,7 @@ async function checkAnswer() { //정답을 맞췄을 때와 틀렸을 때
         }
     }
 }
-
+function goToNextPage_reset(gotopage) { //페이지 URL을 지속하는 함수
+    var nickname = getQueryStringValue("nickname");
+    location.href = gotopage + '?nickname=' + encodeURIComponent(nickname) + '&hearts=3' + '&points=0';
+}
