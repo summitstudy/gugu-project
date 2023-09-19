@@ -146,6 +146,7 @@ function reset_hamsu() {
     alert("초기화면으로 돌아갑니다.");
     location.href = 'selectpage.html?nickname=' + encodeURIComponent(nickname) + '&hearts=3' + '&points=0';
 }
+let timeCheck = 0;
 async function startTimer() { //비동기 타이머 부분
     clearInterval(timerInterval);
     timeLeft = timeset;
@@ -153,7 +154,7 @@ async function startTimer() { //비동기 타이머 부분
         if (timeLeft >= 0) {
             document.getElementById("timer").textContent = "⏰" + (timeLeft / 10).toFixed(1) + "초";
             timeLeft--;
-        } else {
+        } else if(timeCheck == 0) {
             document.getElementById("input").value = "";
             clearInterval(timerInterval);
             let currentHearttmp = parseInt(getQueryStringValue("hearts")) || 0;

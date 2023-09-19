@@ -37,7 +37,7 @@ function mux() { //모든 변수 값 재설정 하는 부분
         startTimer();
         updateStepDisplay(1);
     } else {
-        timeLeft = 50;
+        timeCheck = 1;
         updateStepDisplay(1);
         setTimeout(function () {
             console.log("This message will be logged after 2 seconds");
