@@ -123,23 +123,27 @@ function updateStepDisplay(state) {
         }, 1000);
     }
 }
+let ending_key = 0;
 function ending_hamsu() {
-    document.getElementById("input").value = "";
-    x = y = -10000;
-    decreaseHeartCount();
-    document.body.style.backgroundColor = "#EDC6C6";
-    let stepElem = document.getElementById("stepDisplay");
-    stepElem.classList.remove("celebrate");
-    void stepElem.offsetWidth;  // Force a reflow by the browser
-    stepElem.innerText = "게임 종료👏 💔남은 하트가 없습니다.";
-    stepElem.classList.add("celebrate");
-    setTimeout(() => {
+    if (ending_key == 0) {
+        ending_key = 1;
+        document.getElementById("input").value = "";
+        x = y = -10000;
+        decreaseHeartCount();
+        document.body.style.backgroundColor = "#EDC6C6";
+        let stepElem = document.getElementById("stepDisplay");
         stepElem.classList.remove("celebrate");
-    }, 1000);
-    setTimeout(function () {
-        alert("📢: 결산 화면으로 이동합니다.");
-        goToNextPage_load('final.html');
-    }, 500);
+        void stepElem.offsetWidth;  // Force a reflow by the browser
+        stepElem.innerText = "게임 종료👏 💔남은 하트가 없습니다.";
+        stepElem.classList.add("celebrate");
+        setTimeout(() => {
+            stepElem.classList.remove("celebrate");
+        }, 1000);
+        setTimeout(function () {
+            alert("📢: 결산 화면으로 이동합니다.");
+            goToNextPage_load('final.html');
+        }, 500);
+    }
 }
 function reset_hamsu() {
     var nickname = getQueryStringValue("nickname");
@@ -154,7 +158,7 @@ async function startTimer() { //비동기 타이머 부분
         if (timeLeft >= 0) {
             document.getElementById("timer").textContent = "⏰" + (timeLeft / 10).toFixed(1) + "초";
             timeLeft--;
-        } else if(timeCheck == 0) {
+        } else if (timeCheck == 0) {
             document.getElementById("input").value = "";
             clearInterval(timerInterval);
             let currentHearttmp = parseInt(getQueryStringValue("hearts")) || 0;
